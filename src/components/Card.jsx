@@ -1,8 +1,16 @@
 import React from 'react';
+import classNames from 'classnames';
 
-function Card() {
+import { ReactComponent as FlagIcon } from '../assets/svg/flag-icon.svg';
+
+function Card({ favorited }) {
   return (
     <div className="card">
+      <FlagIcon
+        className={classNames('icon__favorited', {
+          'icon__favorited--active': favorited,
+        })}
+      />
       <div className="card__main">
         <div className="card__main__discount">
           <h3>30%</h3>
@@ -10,10 +18,10 @@ function Card() {
         </div>
         <div className="card__main__desc">
           <h3>Blackberry</h3>
-          <span>Fresh drink</span>
+          <span className="drink__description">Fresh drink</span>
         </div>
       </div>
-      <img src="src/assets/img/image.png" />
+      {/* <img src="src/assets/img/image.png" /> */}
     </div>
   );
 }

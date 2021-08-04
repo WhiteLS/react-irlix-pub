@@ -1,0 +1,22 @@
+.icon {
+  cursor: pointer;
+
+  &__favorited {
+    position: absolute;
+    top: -4px;
+    right: 11%;
+
+    &--active path {
+      fill: $buttonActive !important;
+    }
+  }
+
+  &__search {
+    margin-right: 24px;
+  }
+
+  &__close {
+    position: absolute;
+    right: 55px;
+  }
+}

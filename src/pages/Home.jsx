@@ -3,8 +3,17 @@ import { Card } from '../components/';
 
 function Home() {
   return (
-    <div>
-      <Card />
+    <div className="content__box">
+      <Card favorited={true} />
+      <Card favorited={false} />
+      <Card favorited={false} />
+      <Card favorited={false} />
+      <Card favorited={false} />
+      <Card favorited={false} />
+      <Card favorited={false} />
+      <Card favorited={false} />
+      <Card favorited={false} />
+      <Card favorited={false} />
     </div>
   );
 }

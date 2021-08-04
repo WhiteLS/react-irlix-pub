@@ -1,16 +1,15 @@
 import React from 'react';
-import { Categories, Footer, Header } from './components/';
+import { Footer, Header } from './components/';
+import DetailedCard from './pages/DetailedCard';
 import Home from './pages/Home';
 
 function App() {
-  const categoryTypes = ['Новинки', 'Сладкие', 'Хит', 'Крепкие', 'Лонг', 'Шот'];
-
   return (
     <div className="wrapper">
       <Header />
-      <Categories items={categoryTypes} />
       <div className="content">
-        <Home />
+        {/* <Home /> */}
+        <DetailedCard />
       </div>
       <Footer />
     </div>
