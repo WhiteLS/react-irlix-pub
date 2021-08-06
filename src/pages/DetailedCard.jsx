@@ -35,11 +35,6 @@ function DetailedCard() {
                       </li>
                     );
                   })}
-                {/* <li className="detailed__card__header__ingredients__list__item">
-                <span className="ingredient__name">Джин</span>
-                <span className="divider"></span>
-                <span className="ingredient__amount">40 мл</span>
-              </li> */}
               </ul>
             </div>
           </div>

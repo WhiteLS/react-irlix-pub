@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 
 import { ReactComponent as SearchIcon } from '../assets/svg/search-icon.svg';
 import { ReactComponent as CloseIcon } from '../assets/svg/close-icon.svg';
 import Button from './Button';
-import { Link } from 'react-router-dom';
 
 function Footer({ searchValue, onChange, buttonLink, buttonValue }) {
   const [search, setSearch] = useState(false);

@@ -1,0 +1,36 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 96px;
+
+  background-color: $secondaryBgColor;
+
+  border-radius: 32px 32px 0 0;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+
+    padding: 0 32px;
+
+    input {
+      width: 100%;
+
+      background-color: $buttonBg;
+      border: 0;
+      border-radius: 32px;
+
+      color: $primaryTextColor;
+      font-family: inherit;
+      font-weight: 300;
+      letter-spacing: 0.7px;
+
+      padding: 16px 56px 16px 16px;
+    }
+  }
+}

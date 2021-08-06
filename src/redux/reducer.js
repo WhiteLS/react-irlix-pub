@@ -1,7 +1,6 @@
 const initialState = {
   items: [],
   detailedCocktail: {},
-  favorites: [],
   category: '',
   isLoaded: false,
 };

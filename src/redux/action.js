@@ -24,27 +24,22 @@ export const setCocktails = (items) => ({
   payload: items,
 });
 
-export const setDetailed = (items) => ({
+export const setDetailed = (item) => ({
   type: 'SET_DETAILED',
-  payload: items,
+  payload: item,
 });
 
-export const setFavorite = (items) => ({
-  type: 'SET_FAVORITE',
-  payload: items,
-});
-
-export const toggleFavorite = (items) => ({
+export const toggleFavorite = (item) => ({
   type: 'TOGGLE_FAVORITE',
-  payload: items,
+  payload: item,
 });
 
-export const toggleFavorites = (items) => (dispatch) => {
-  axios.put(`https://610bb9122b6add0017cb3a45.mockapi.io/api/v1/cocktail/${items.id}`, {
-    isFavorite: !items.isFavorite,
+export const setFavorites = (item) => (dispatch) => {
+  axios.put(`https://610bb9122b6add0017cb3a45.mockapi.io/api/v1/cocktail/${item.id}`, {
+    isFavorite: !item.isFavorite,
   });
 
-  return dispatch(toggleFavorite(items));
+  return dispatch(toggleFavorite(item));
 };
 
 export const setCategory = (index) => ({
