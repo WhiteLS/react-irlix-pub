@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { Card, CardEmpty, CardLoading, Footer, Header } from '../components/';
@@ -8,20 +8,29 @@ function Home() {
   const dispatch = useDispatch();
   const cards = useSelector(({ items }) => items);
   const isLoaded = useSelector(({ isLoaded }) => isLoaded);
+  const [value, setValue] = useState('');
 
   useEffect(() => {
     dispatch(fetchCocktails());
   }, []);
 
+  const handleChangeInput = (e) => {
+    setValue(e.target.value);
+  };
+
+  const filteredCocktails = cards.filter((cocktail) => {
+    return cocktail.name.toLowerCase().includes(value.toLocaleLowerCase());
+  });
+
   return (
     <div className="content">
-      <Header />
+      <Header>Главная</Header>
       <div className="content__box">
         <div className="notification">Добавлено в избранное</div>
         {isLoaded ? (
           cards.length ? (
-            cards.map((item) => {
-              return <Card to="/det" key={item.id} cocktail={item} />;
+            filteredCocktails.map((item) => {
+              return <Card key={item.id} cocktail={item} />;
             })
           ) : (
             <CardEmpty />
@@ -33,15 +42,13 @@ function Home() {
               return <CardLoading key={i} />;
             })
         )}
-        {/* {cards.length ? (
-          cards.map((item) => {
-            return <Card to="/det" key={item.id} cocktail={item} />;
-          })
-        ) : (
-          <CardEmpty />
-        )} */}
       </div>
-      <Footer />
+      <Footer
+        searchValue={value}
+        onChange={handleChangeInput}
+        buttonLink="/favorites"
+        buttonValue="Избранные"
+      />
     </div>
   );
 }

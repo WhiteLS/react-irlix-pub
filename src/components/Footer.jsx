@@ -1,28 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 
 import { ReactComponent as SearchIcon } from '../assets/svg/search-icon.svg';
 import { ReactComponent as CloseIcon } from '../assets/svg/close-icon.svg';
 import Button from './Button';
+import { Link } from 'react-router-dom';
 
-function Footer() {
+function Footer({ searchValue, onChange, buttonLink, buttonValue }) {
   const [search, setSearch] = useState(false);
-  const [value, setValue] = useState('');
-  // const searchRef = useRef();
 
   const toggleSearch = () => {
     setSearch(!search);
-    setValue('');
   };
-
-  const handleChangeValue = (e) => {
-    setValue(e.target.value);
-  };
-
-  // search &&
-  //   useEffect(() => {
-  //     searchRef.current.focus();
-  //   }, []);
 
   return (
     <div className="footer">
@@ -32,12 +21,14 @@ function Footer() {
         })}>
         {search ? (
           <>
-            <input type="text" value={value} onChange={(e) => handleChangeValue(e)} />
+            <input type="text" value={searchValue} onChange={(e) => onChange(e)} />
             <CloseIcon className="icon icon__close" onClick={toggleSearch} />
           </>
         ) : (
           <>
-            <Button>Избранные</Button>
+            <Link to={buttonLink}>
+              <Button>{buttonValue}</Button>
+            </Link>
             <SearchIcon className="icon icon__search" onClick={toggleSearch} />
           </>
         )}

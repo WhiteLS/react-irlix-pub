@@ -6,11 +6,13 @@ export const setLoaded = (payload) => ({
 });
 
 export const fetchCocktails =
-  (id = '') =>
+  (id = '', category = '') =>
   async (dispatch) => {
     dispatch(setLoaded(false));
 
-    let api = `https://610bb9122b6add0017cb3a45.mockapi.io/api/v1/cocktail/${id}`;
+    let api = `https://610bb9122b6add0017cb3a45.mockapi.io/api/v1/cocktail/${
+      id || '?' + category + '=true'
+    }`;
 
     const response = await axios.get(api);
     const data = await response.data;
@@ -30,10 +32,22 @@ export const setDetailed = (items) => ({
 export const setFavorite = (items) => ({
   type: 'SET_FAVORITE',
   payload: items,
-  // payload: (items.isFavorite = !items.isFavorite),
 });
 
 export const toggleFavorite = (items) => ({
   type: 'TOGGLE_FAVORITE',
   payload: items,
+});
+
+export const toggleFavorites = (items) => (dispatch) => {
+  axios.put(`https://610bb9122b6add0017cb3a45.mockapi.io/api/v1/cocktail/${items.id}`, {
+    isFavorite: !items.isFavorite,
+  });
+
+  return dispatch(toggleFavorite(items));
+};
+
+export const setCategory = (index) => ({
+  type: 'SET_CATEGORY',
+  payload: index,
 });

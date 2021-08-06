@@ -2,6 +2,7 @@ const initialState = {
   items: [],
   detailedCocktail: {},
   favorites: [],
+  category: '',
   isLoaded: false,
 };
 
@@ -46,6 +47,12 @@ const items = (state = initialState, action) => {
 
           return newItem || item;
         }),
+      };
+
+    case 'SET_CATEGORY':
+      return {
+        ...state,
+        category: action.payload,
       };
 
     default:

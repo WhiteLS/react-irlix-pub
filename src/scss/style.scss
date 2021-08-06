@@ -145,6 +145,11 @@ h4 {
       -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       transition: all 0.2s ease;
 
+      &--active {
+        color: $white;
+        border-color: $primaryTextColor;
+      }
+
       &:hover {
         color: $white;
         border-color: $primaryTextColor;
@@ -168,7 +173,7 @@ h4 {
   &__box {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    // justify-content: space-between;
     gap: 32px;
 
     padding: 0 32px;

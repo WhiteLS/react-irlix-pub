@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Route } from 'react-router-dom';
 
-import { DetailedCard, Home } from './pages/';
+import { Home, DetailedCard, Favorites } from './pages/';
 // import { fetchCocktails } from './redux/action';
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
       {/* </div> */}
       <Route path="/" component={Home} exact />
       <Route path="/detail" component={DetailedCard} exact />
+      <Route path="/favorites" component={Favorites} exact />
     </div>
   );
 }

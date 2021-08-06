@@ -6,7 +6,7 @@
 
   // background: linear-gradient(180deg, rgba(0, 0, 0, 0) 48.96%, rgba(14, 13, 19, 0.9) 89.58%),
   //   url('../assets/img/image.png');
-  background-position: 22% 50%;
+  background-position: 22% 50% !important;
   background-repeat: no-repeat;
   border-radius: 32px;
 
@@ -17,6 +17,9 @@
   }
   @media only screen and (min-width: 1023px) and (max-width: 1439px) {
     max-width: 298px;
+  }
+  @media only screen and (min-width: 1440px) {
+    max-width: 23.3%;
   }
 
   a {

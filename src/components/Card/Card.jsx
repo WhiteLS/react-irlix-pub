@@ -6,24 +6,27 @@ import axios from 'axios';
 
 import { ReactComponent as FlagIcon } from '../../assets/svg/flag-icon.svg';
 import { fetchCocktails, setFavorite, toggleFavorite } from '../../redux/action';
+import { toggleFavorites } from './../../redux/action';
 
 function Card({ cocktail }) {
   const dispatch = useDispatch();
-  const [favorite, setToggle] = useState(cocktail.isFavorite);
+  // const [favorite, setToggle] = useState(cocktail.isFavorite);
 
   const handleClick = () => {
     dispatch(fetchCocktails(cocktail.id));
   };
 
   const handleAddToFavorites = (obj) => {
-    setToggle(!favorite);
-    dispatch(toggleFavorite(obj));
+    // setToggle(!favorite);
+    // dispatch(toggleFavorite(obj));
 
     // dispatch(setFavorite(obj));
-    axios.put(`https://610bb9122b6add0017cb3a45.mockapi.io/api/v1/cocktail/${obj.id}`, {
-      isFavorite: !favorite,
-    });
+    // axios.put(`https://610bb9122b6add0017cb3a45.mockapi.io/api/v1/cocktail/${obj.id}`, {
+    //   isFavorite: !cocktail.isFavorite,
+    // });
     // dispatch(fetchCocktails());
+
+    dispatch(toggleFavorites(obj));
   };
 
   return (
@@ -36,7 +39,7 @@ function Card({ cocktail }) {
       <FlagIcon
         onClick={() => handleAddToFavorites(cocktail)}
         className={classNames('icon__favorited', {
-          'icon__favorited--active': favorite,
+          'icon__favorited--active': cocktail.isFavorite,
         })}
       />
       <div className="card__main">
