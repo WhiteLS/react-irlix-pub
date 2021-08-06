@@ -1,17 +1,25 @@
-import React from 'react';
-import { Footer, Header } from './components/';
-import DetailedCard from './pages/DetailedCard';
-import Home from './pages/Home';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { Route } from 'react-router-dom';
+
+import { DetailedCard, Home } from './pages/';
+// import { fetchCocktails } from './redux/action';
 
 function App() {
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(fetchCocktails());
+  // }, []);
+
   return (
     <div className="wrapper">
-      <Header />
-      <div className="content">
-        {/* <Home /> */}
-        <DetailedCard />
-      </div>
-      <Footer />
+      {/* <div className="content"> */}
+      {/* <Home /> */}
+      {/* <DetailedCard /> */}
+      {/* </div> */}
+      <Route path="/" component={Home} exact />
+      <Route path="/detail" component={DetailedCard} exact />
     </div>
   );
 }

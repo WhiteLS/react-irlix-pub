@@ -4,7 +4,7 @@ import { Categories } from './';
 import { ReactComponent as LogoIcon } from '../assets/svg/logo-icon.svg';
 
 function Header() {
-  const categoryTypes = ['Новинки', 'Сладкие', 'Хит', 'Крепкие', 'Лонг', 'Шот'];
+  const categoryTypes = ['Все', 'Новинки', 'Сладкие', 'Хит', 'Крепкие', 'Лонг', 'Шот'];
 
   return (
     <div className="header">
