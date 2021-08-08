@@ -12,6 +12,10 @@ function CardEmpty() {
           <span className="drink__description">Попробуйте изменить запрос</span>
         </div>
       </div>
+      <picture>
+        <source srcSet="src/assets/img/card-empty.webp" />
+        <img src="src/assets/img/card-empty.jpg" alt="Пустой результат" />
+      </picture>
     </div>
   );
 }

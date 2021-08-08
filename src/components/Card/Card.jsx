@@ -20,9 +20,10 @@ function Card({ cocktail }) {
   return (
     <div
       className="card"
-      style={{
-        background: `linear-gradient(180deg, rgba(0, 0, 0, 0) 48.96%, rgba(14, 13, 19, 0.9) 89.58%), url(${cocktail.photoUrl})`,
-      }}>
+      // style={{
+      //   background: `linear-gradient(180deg, rgba(0, 0, 0, 0) 48.96%, rgba(14, 13, 19, 0.9) 89.58%), url(${cocktail.photoUrl})`,
+      // }}
+    >
       <Link to="/detail" onClick={() => handleClick()} />
       <FlagIcon
         onClick={() => handleAddToFavorites(cocktail)}
@@ -40,6 +41,10 @@ function Card({ cocktail }) {
           <span className="drink__description">{cocktail.comment}</span>
         </div>
       </div>
+      <picture>
+        <source srcSet={cocktail.photoUrl + '.webp'} />
+        <img src={cocktail.photoUrl + '.jpg'} alt={'Изображение' + cocktail.name} />
+      </picture>
       {/* <img src="src/assets/img/image.png" /> */}
     </div>
   );

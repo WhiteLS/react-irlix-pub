@@ -42,7 +42,12 @@ function Favorites() {
             })
         )}
       </div>
-      <Footer searchValue={value} onChange={handleChangeInput} buttonLink="/" buttonValue="Назад" />
+      <Footer
+        searchValue={value}
+        onChange={handleChangeInput}
+        buttonLink="../react-irlix-pub/"
+        buttonValue="Назад"
+      />
     </div>
   );
 }

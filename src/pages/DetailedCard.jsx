@@ -11,8 +11,9 @@ function DetailedCard() {
   return (
     <div
       className="detailed__card"
-      style={{ backgroundImage: `url(${detailedCocktail.photoUrl})` }}>
-      <Link to="/" className="detailed__card__button">
+      // style={{ backgroundImage: `url(${detailedCocktail.photoUrl})` }}
+    >
+      <Link to="../react-irlix-pub/" className="detailed__card__button">
         <BackIcon />
       </Link>
       {isLoaded ? (
@@ -54,7 +55,10 @@ function DetailedCard() {
       ) : (
         'Loading'
       )}
-      {/* <img src="src/assets/img/image.png" /> */}
+      <picture>
+        <source srcSet={detailedCocktail.photoUrl + '.webp'} />
+        <img src={detailedCocktail.photoUrl + '.jpg'} alt={'Изображение' + detailedCocktail.name} />
+      </picture>
       {/* <img className="bigImg" src="src/assets/img/image1600x900.png" /> */}
     </div>
   );
