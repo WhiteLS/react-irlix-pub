@@ -29,7 +29,7 @@ function Favorites() {
         {isLoaded ? (
           filteredFavoriteCocktails.length ? (
             filteredFavoriteCocktails.map((item) => {
-              return <Card to="/det" key={item.id} cocktail={item} />;
+              return <Card key={item.id} cocktail={item} />;
             })
           ) : (
             <CardEmpty />

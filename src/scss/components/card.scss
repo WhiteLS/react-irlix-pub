@@ -5,8 +5,6 @@
   height: 420px;
 
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 48.96%, rgba(14, 13, 19, 0.9) 89.58%);
-  background-position: 22% 50% !important;
-  background-repeat: no-repeat;
   border-radius: 32px;
 
   cursor: pointer;
@@ -15,11 +13,11 @@
   @media only screen and (min-width: 768px) and (max-width: 1023px) {
     max-width: 336px;
   }
-  @media only screen and (min-width: 1023px) and (max-width: 1439px) {
+  @media only screen and (min-width: 1024px) and (max-width: 1440px) {
     max-width: 298px;
   }
   @media only screen and (min-width: 1440px) {
-    max-width: 23.3%;
+    max-width: 23.2%;
   }
 
   a {
@@ -59,7 +57,20 @@
     top: 0;
     left: -23%;
     height: 100%;
+    border-radius: 32px;
 
     z-index: -10;
+
+    @media only screen and (min-width: 2600px) {
+      left: 0;
+    }
+  }
+  img {
+    height: 100%;
+    border-radius: 32px;
+
+    @media only screen and (min-width: 1440px) {
+      height: unset;
+    }
   }
 }

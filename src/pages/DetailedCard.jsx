@@ -1,50 +1,54 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { cn } from '@bem-react/classname';
 
 import { ReactComponent as BackIcon } from '../assets/svg/back-icon.svg';
 
 function DetailedCard() {
+  const bem = cn('detailedCard');
   const detailedCocktail = useSelector(({ detailedCocktail }) => detailedCocktail);
   const isLoaded = useSelector(({ isLoaded }) => isLoaded);
 
   return (
-    <div
-      className="detailed__card"
-      // style={{ backgroundImage: `url(${detailedCocktail.photoUrl})` }}
-    >
-      <Link to="../react-irlix-pub/" className="detailed__card__button">
+    <div className="detailedCard">
+      <Link to="../react-irlix-pub/" className="detailedCard-button">
         <BackIcon />
       </Link>
       {isLoaded ? (
-        <div className="detailed__card__wrapper">
-          <div className="detailed__card__header">
-            <div className="detailed__card__header__title">
+        <div className="detailedCard-wrapper">
+          <div className="detailedCard-header">
+            <div className="detailedCard-header-title">
               <h3>{detailedCocktail.name}</h3>
-              <span className="drink__description">{detailedCocktail.comment}</span>
+              <span className="drinkDescription">{detailedCocktail.comment}</span>
             </div>
-            <div className="detailed__card__header__ingredients">
+            <div className="detailedCard-header-ingredients">
               <h4>Ингредиенты</h4>
-              <ul className="detailed__card__header__ingredients__list">
+              <ul
+              // className="detailedCard-header-ingredients-list"
+              >
                 {detailedCocktail.ingredients &&
                   detailedCocktail.ingredients.map((item, i) => {
                     return (
-                      <li key={i} className="detailed__card__header__ingredients__list__item">
-                        <span className="ingredient__name">{item.name}</span>
+                      <li
+                        key={i}
+                        // className="detailedCard-header-ingredients-list-item"
+                      >
+                        <span className="ingredient-name">{item.name}</span>
                         <span className="divider"></span>
-                        <span className="ingredient__amount">{item.amount}</span>
+                        <span className="ingredient-amount">{item.amount}</span>
                       </li>
                     );
                   })}
               </ul>
             </div>
           </div>
-          <div className="detailed__card__footer">
+          <div className="detailedCard-footer">
             <h4>Как готовить</h4>
-            <ul className="detailed__card__footer__recipe">
+            <ul className="detailedCard-footer-recipe">
               {detailedCocktail.recipe.map((item, i) => {
                 return (
-                  <li key={i} className="detailed__card__footer__recipe__item">
+                  <li key={i} className="detailedCard-footer-recipe-item">
                     {item}
                   </li>
                 );
@@ -59,10 +63,9 @@ function DetailedCard() {
         <source srcSet={'/src/assets/img/' + detailedCocktail.photoUrl + '.webp'} />
         <img
           src={'/src/assets/img/' + detailedCocktail.photoUrl + '.jpg'}
-          alt={'Изображение' + detailedCocktail.name}
+          alt={'Изображение ' + detailedCocktail.name}
         />
       </picture>
-      {/* <img className="bigImg" src="src/assets/img/image1600x900.png" /> */}
     </div>
   );
 }

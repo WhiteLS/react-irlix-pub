@@ -1,37 +1,32 @@
-.detailed__card {
+.detailedCard {
   width: 100%;
   height: 100%;
-  // background-image: url('src/assets/img/image.png');
-  // background-position: 8% 0;
-  // background-repeat: no-repeat;
-  // background-attachment: fixed;
-  // background-size: cover;
   display: flex;
   flex-direction: column;
-
-  // @media only screen and (min-width: 768px) {
-  //   background-size: cover;
-  // }
 
   picture,
   img {
     position: fixed;
-    top: -15%;
+    top: 0;
     left: 0;
     width: 100%;
 
     z-index: -10;
+
+    @media only screen and (min-width: 768px) {
+      top: -15%;
+    }
   }
 
-  &__wrapper {
+  &-wrapper {
     background-color: $secondaryBgColor;
     border-radius: 0 32px 0 0;
 
-    margin-top: clamp(350px, 30%, 800px);
+    margin-top: clamp(200px, 30%, 800px);
     padding-bottom: 128px;
   }
 
-  &__button {
+  &-button {
     position: fixed;
     width: 64px;
     height: 64px;
@@ -48,14 +43,12 @@
     cursor: pointer;
   }
 
-  &__header {
+  &-header {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 
-    // background-color: $primaryBgColor;
-    // background-color: $secondaryBgColor;
     border-radius: 0 32px 0 0;
 
     padding: 32px;
@@ -67,20 +60,24 @@
       background-color: $primaryBgColor;
       height: 100%;
       top: -1px;
-      z-index: -10;
+      z-index: 0;
       left: 0;
       border-radius: 0% 32px 35% 60% / 0% 32px 32% 35%;
     }
 
-    &__title {
+    &-title {
       margin-bottom: 32px;
+
+      z-index: 10;
     }
 
-    &__ingredients {
+    &-ingredients {
       width: 100%;
 
-      &__list {
-        &__item {
+      z-index: 5;
+
+      ul {
+        li {
           display: flex;
           justify-content: space-between;
           align-items: baseline;
@@ -97,17 +94,17 @@
           }
 
           .ingredient {
-            &__name,
-            &__amount {
+            &-name,
+            &-amount {
               font-family: inherit;
               font-weight: 300;
             }
 
-            &__name {
+            &-name {
               padding-right: 3px;
             }
 
-            &__amount {
+            &-amount {
               padding-left: 3px;
             }
           }
@@ -116,15 +113,14 @@
     }
   }
 
-  &__footer {
+  &-footer {
     position: relative;
 
-    // background-color: $secondaryBgColor;
     padding: 0 32px;
     margin-top: -1px;
 
-    &__recipe {
-      &__item {
+    &-recipe {
+      &-item {
         font-family: inherit;
         font-weight: 300;
         line-height: normal;

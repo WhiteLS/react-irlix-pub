@@ -9,7 +9,7 @@ function CardEmpty() {
         </div>
         <div className="card__main__footer">
           <h3>Пусто</h3>
-          <span className="drink__description">Попробуйте изменить запрос</span>
+          <span className="drinkDescription">Попробуйте изменить запрос</span>
         </div>
       </div>
       <picture>

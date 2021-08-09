@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { Card, CardEmpty, CardLoading, Footer, Header } from '../components/';
@@ -18,6 +18,11 @@ function Home() {
     setValue(e.target.value);
   };
 
+  // const filteredCocktails = useMemo(() => {
+  //   return cards.filter((cocktail) => {
+  //     return cocktail.name.toLowerCase().includes(value.toLocaleLowerCase());
+  //   });
+  // });
   const filteredCocktails = cards.filter((cocktail) => {
     return cocktail.name.toLowerCase().includes(value.toLocaleLowerCase());
   });
@@ -25,10 +30,13 @@ function Home() {
   return (
     <div className="content">
       <Header>Главная</Header>
-      <div className="content__box">
+      <div
+        className={
+          'content__box ' + (filteredCocktails.length >= 4 ? 'content__box--justify' : '')
+        }>
         <div className="notification">Добавлено в избранное</div>
         {isLoaded ? (
-          cards.length ? (
+          filteredCocktails.length ? (
             filteredCocktails.map((item) => {
               return <Card key={item.id} cocktail={item} />;
             })

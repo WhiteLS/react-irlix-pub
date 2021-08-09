@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { ReactComponent as FlagIcon } from '../../assets/svg/flag-icon.svg';
 import { fetchCocktails, setFavorites } from '../../redux/action';
 
-function Card({ cocktail }) {
+function Card({ cocktail, justify }) {
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -18,12 +18,7 @@ function Card({ cocktail }) {
   };
 
   return (
-    <div
-      className="card"
-      // style={{
-      //   background: `linear-gradient(180deg, rgba(0, 0, 0, 0) 48.96%, rgba(14, 13, 19, 0.9) 89.58%), url(${cocktail.photoUrl})`,
-      // }}
-    >
+    <div className="card">
       <Link to="/detail" onClick={() => handleClick()} />
       <FlagIcon
         onClick={() => handleAddToFavorites(cocktail)}
@@ -38,21 +33,16 @@ function Card({ cocktail }) {
         </div>
         <div className="card__main__footer">
           <h3>{cocktail.name}</h3>
-          <span className="drink__description">{cocktail.comment}</span>
+          <span className="drinkDescription">{cocktail.comment}</span>
         </div>
       </div>
-      {/* <picture>
-        <source srcSet="/src/assets/img/ersh.webp" />
-        <img src="/src/assets/img/ersh.jpg" alt={'Изображение' + cocktail.name} />
-      </picture> */}
       <picture>
-        <source srcSet={'/src/assets/img/' + cocktail.photoUrl + '.webp'} />
+        <source srcSet={'src/assets/img/' + cocktail.photoUrl + '.webp'} />
         <img
-          src={'/src/assets/img/' + cocktail.photoUrl + '.jpg'}
-          alt={'Изображение' + cocktail.name}
+          src={'src/assets/img/' + cocktail.photoUrl + '.jpg'}
+          alt={'Изображение ' + cocktail.name}
         />
       </picture>
-      {/* <img src="src/assets/img/image.png" /> */}
     </div>
   );
 }

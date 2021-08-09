@@ -5,7 +5,7 @@ function Categories({ category, onSelectCategory, items }) {
   return (
     <div className="categories">
       <ul className="categories__list">
-        {items.map((item, i) => {
+        {items.map((item) => {
           return (
             <li
               key={item.name}

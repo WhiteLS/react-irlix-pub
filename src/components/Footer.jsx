@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import classNames from 'classnames';
 import { Link } from 'react-router-dom';
+import { cn } from '@bem-react/classname';
 
 import { ReactComponent as SearchIcon } from '../assets/svg/search-icon.svg';
 import { ReactComponent as CloseIcon } from '../assets/svg/close-icon.svg';
 import Button from './Button';
 
 function Footer({ searchValue, onChange, buttonLink, buttonValue }) {
+  const bem = cn('footer');
   const [search, setSearch] = useState(false);
 
   const toggleSearch = () => {
@@ -15,10 +16,7 @@ function Footer({ searchValue, onChange, buttonLink, buttonValue }) {
 
   return (
     <div className="footer">
-      <div
-        className={classNames('footer__wrapper', {
-          'footer__wrapper--search': search,
-        })}>
+      <div className={bem('wrapper')}>
         {search ? (
           <>
             <input type="text" value={searchValue} onChange={(e) => onChange(e)} />
