@@ -56,8 +56,11 @@ function DetailedCard() {
         'Loading'
       )}
       <picture>
-        <source srcSet={detailedCocktail.photoUrl + '.webp'} />
-        <img src={detailedCocktail.photoUrl + '.jpg'} alt={'Изображение' + detailedCocktail.name} />
+        <source srcSet={'/src/assets/img/' + detailedCocktail.photoUrl + '.webp'} />
+        <img
+          src={'/src/assets/img/' + detailedCocktail.photoUrl + '.jpg'}
+          alt={'Изображение' + detailedCocktail.name}
+        />
       </picture>
       {/* <img className="bigImg" src="src/assets/img/image1600x900.png" /> */}
     </div>

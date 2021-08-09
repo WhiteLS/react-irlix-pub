@@ -41,9 +41,16 @@ function Card({ cocktail }) {
           <span className="drink__description">{cocktail.comment}</span>
         </div>
       </div>
+      {/* <picture>
+        <source srcSet="/src/assets/img/ersh.webp" />
+        <img src="/src/assets/img/ersh.jpg" alt={'Изображение' + cocktail.name} />
+      </picture> */}
       <picture>
-        <source srcSet={cocktail.photoUrl + '.webp'} />
-        <img src={cocktail.photoUrl + '.jpg'} alt={'Изображение' + cocktail.name} />
+        <source srcSet={'/src/assets/img/' + cocktail.photoUrl + '.webp'} />
+        <img
+          src={'/src/assets/img/' + cocktail.photoUrl + '.jpg'}
+          alt={'Изображение' + cocktail.name}
+        />
       </picture>
       {/* <img src="src/assets/img/image.png" /> */}
     </div>
