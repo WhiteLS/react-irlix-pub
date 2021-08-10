@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { Card, CardEmpty, CardLoading, Footer, Header } from '../components/';
+import { Card, CardEmpty, CardLoading, Footer, Header, Notification } from '../components/';
 import { fetchCocktails } from '../redux/action';
 
 function Home() {
@@ -9,6 +9,7 @@ function Home() {
   const cards = useSelector(({ items }) => items);
   const isLoaded = useSelector(({ isLoaded }) => isLoaded);
   const [value, setValue] = useState('');
+  const [ntf, setNtf] = useState(false);
 
   useEffect(() => {
     dispatch(fetchCocktails());
@@ -16,6 +17,14 @@ function Home() {
 
   const handleChangeInput = (e) => {
     setValue(e.target.value);
+  };
+
+  const toggleNotification = () => {
+    setNtf(true);
+
+    setTimeout(() => {
+      setNtf(false);
+    }, 1500);
   };
 
   // const filteredCocktails = useMemo(() => {
@@ -32,13 +41,13 @@ function Home() {
       <Header>Главная</Header>
       <div
         className={
-          'content__box ' + (filteredCocktails.length >= 4 ? 'content__box--justify' : '')
+          'content-box' + (filteredCocktails.length % 4 === 0 ? ' content-box_justify' : '')
         }>
-        <div className="notification">Добавлено в избранное</div>
+        <Notification ntf={ntf} />
         {isLoaded ? (
           filteredCocktails.length ? (
             filteredCocktails.map((item) => {
-              return <Card key={item.id} cocktail={item} />;
+              return <Card key={item.id} cocktail={item} toggleNotification={toggleNotification} />;
             })
           ) : (
             <CardEmpty />

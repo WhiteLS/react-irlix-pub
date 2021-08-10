@@ -1,3 +1,5 @@
+@import '../../scss/vars';
+
 .card {
   position: relative;
   max-width: 320px;
@@ -28,7 +30,7 @@
     height: 100%;
   }
 
-  &__main {
+  &-main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -37,19 +39,19 @@
     height: 100%;
 
     padding: 16px 32px 24px 32px;
+  }
 
-    &__header {
-      display: flex;
-      flex-direction: column;
+  &-header {
+    display: flex;
+    flex-direction: column;
 
-      background-color: $secondaryBgColor;
-      border-radius: 24px;
+    background-color: $secondaryBgColor;
+    border-radius: 24px;
 
-      font-weight: 300;
-      text-align: right;
+    font-weight: 300;
+    text-align: right;
 
-      padding: 20px 8px;
-    }
+    padding: 20px 8px;
   }
 
   picture {

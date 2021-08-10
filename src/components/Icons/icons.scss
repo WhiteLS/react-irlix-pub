@@ -1,21 +1,23 @@
+@import '../../scss/vars';
 .icon {
   cursor: pointer;
 
-  &__favorited {
+  &-favorited {
     position: absolute;
     top: -4px;
     right: 11%;
+    z-index: 50;
 
-    &--active path {
+    &_active path {
       fill: $buttonActive !important;
     }
   }
 
-  &__search {
+  &-search {
     margin-right: 24px;
   }
 
-  &__close {
+  &-close {
     position: absolute;
     right: 55px;
   }

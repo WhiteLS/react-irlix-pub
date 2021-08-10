@@ -27,12 +27,6 @@ const items = (state = initialState, action) => {
         isLoaded: true,
       };
 
-    case 'SET_FAVORITE':
-      return {
-        ...state,
-        favorites: [...state.favorites, action.payload],
-      };
-
     case 'TOGGLE_FAVORITE':
       return {
         ...state,
@@ -46,6 +40,7 @@ const items = (state = initialState, action) => {
 
           return newItem || item;
         }),
+        detailedCocktail: { ...state.detailedCocktail, isFavorite: !action.payload.isFavorite },
       };
 
     case 'SET_CATEGORY':

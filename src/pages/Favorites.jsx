@@ -25,7 +25,10 @@ function Favorites() {
   return (
     <div className="content">
       <Header>Избранные</Header>
-      <div className="content__box">
+      <div
+        className={
+          'content-box' + (filteredFavoriteCocktails.length % 4 === 0 ? ' content-box_justify' : '')
+        }>
         {isLoaded ? (
           filteredFavoriteCocktails.length ? (
             filteredFavoriteCocktails.map((item) => {

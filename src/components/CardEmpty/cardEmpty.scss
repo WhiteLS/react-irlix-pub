@@ -1,0 +1,24 @@
+@import '../../scss/vars';
+
+.card {
+  &_empty {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 48.96%, rgba(14, 13, 19, 0.9) 89.58%);
+    max-width: 320px;
+
+    &-header {
+      width: 100%;
+      background-color: transparent;
+
+      align-items: center;
+      text-align: center;
+
+      h3 {
+        font-weight: 400;
+      }
+    }
+
+    picture {
+      left: 0;
+    }
+  }
+}

@@ -1,11 +1,15 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { cn } from '@bem-react/classname';
 
-import { Categories } from './';
-import { ReactComponent as LogoIcon } from '../assets/svg/logo-icon.svg';
-import { fetchCocktails, setCategory } from '../redux/action';
+import './header.scss';
+
+import { Categories } from '..';
+import { LogoIcon } from '../Icons';
+import { fetchCocktails, setCategory } from '../../redux/action';
 
 function Header({ children }) {
+  const bem = cn('header');
   const categoryTypes = [
     { name: 'Все', category: '' },
     { name: 'Новинки', category: 'isNew' },
@@ -38,15 +42,13 @@ function Header({ children }) {
   };
 
   return (
-    <div className="header">
-      <div className="header__top">
-        <div className="header__top__title">
+    <div className={bem()}>
+      <div className={bem('wrapper')}>
+        <div className={bem('title')}>
           <h1>{children}</h1>
-          <span className="header__top__title__date">
-            {`${date.getDate()} ${month[date.getMonth()]} ${date.getFullYear()}`}
-          </span>
+          <span>{`${date.getDate()} ${month[date.getMonth()]} ${date.getFullYear()}`}</span>
         </div>
-        <div className="header__top__logo">
+        <div className={bem('logo')}>
           <LogoIcon className="icon" />
           <span>pub</span>
         </div>
