@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { cn } from '@bem-react/classname';
+import { Link } from 'react-router-dom';
 
 import './header.scss';
 
@@ -49,7 +50,10 @@ function Header({ children }) {
           <span>{`${date.getDate()} ${month[date.getMonth()]} ${date.getFullYear()}`}</span>
         </div>
         <div className={bem('logo')}>
-          <LogoIcon className="icon" />
+          <Link to="/react-irlix-pub/">
+            <LogoIcon className="icon" />
+          </Link>
+
           <span>pub</span>
         </div>
       </div>
