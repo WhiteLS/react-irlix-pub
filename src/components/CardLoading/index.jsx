@@ -5,8 +5,8 @@ const CardLoading = () => (
   <ContentLoader
     className="card"
     speed={2}
-    width={320}
-    height={420}
+    // width={320}
+    // height={420}
     viewBox="0 0 320 420"
     backgroundColor="#c7c7c7"
     foregroundColor="#575757">

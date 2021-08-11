@@ -21,4 +21,11 @@
     position: absolute;
     right: 55px;
   }
+
+  &-logo {
+    @media only screen and (min-width: 200px) and (max-width: 400px) {
+      width: 70px;
+      height: 24px;
+    }
+  }
 }

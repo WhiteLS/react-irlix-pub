@@ -13,6 +13,7 @@ function Footer({ searchValue, onChange, buttonLink, buttonValue }) {
 
   const toggleSearch = () => {
     setSearch(!search);
+    onChange('');
   };
 
   return (
@@ -20,7 +21,7 @@ function Footer({ searchValue, onChange, buttonLink, buttonValue }) {
       <div className={bem('wrapper')}>
         {search ? (
           <>
-            <input type="text" value={searchValue} onChange={(e) => onChange(e)} />
+            <input type="text" value={searchValue} onChange={(e) => onChange(e.target.value)} />
             <CloseIcon className="icon icon-close" onClick={toggleSearch} />
           </>
         ) : (

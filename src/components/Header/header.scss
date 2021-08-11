@@ -24,6 +24,7 @@
     line-height: normal;
 
     span {
+      font-size: 14px;
       font-weight: 300;
     }
   }
@@ -40,9 +41,13 @@
     color: $white;
     line-height: 0.85;
 
+    @media only screen and (min-width: 200px) and (max-width: 400px) {
+      font-size: 24px;
+    }
+
     &::after {
       position: absolute;
-      top: -57px;
+      top: -60px;
       right: 0;
 
       content: '';
@@ -52,6 +57,11 @@
 
       background-color: $white;
       transform: rotate(-35deg);
+
+      @media only screen and (min-width: 200px) and (max-width: 400px) {
+        width: 4px;
+        top: -47px;
+      }
     }
   }
 }

@@ -9,7 +9,7 @@ function CardEmpty() {
   return (
     <div className={bem({ empty: true })}>
       <div className={bem('main')}>
-        <div className={bem('header')}>
+        <div className={bem('header', { empty: true })}>
           <h3>Нет результатов</h3>
         </div>
         <div className={bem('footer')}>

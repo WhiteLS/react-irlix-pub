@@ -16,7 +16,7 @@ function Home() {
   }, []);
 
   const handleChangeInput = (e) => {
-    setValue(e.target.value);
+    setValue(e);
   };
 
   const toggleNotification = () => {
@@ -53,11 +53,7 @@ function Home() {
             <CardEmpty />
           )
         ) : (
-          Array(4)
-            .fill(null)
-            .map((_, i) => {
-              return <CardLoading key={i} />;
-            })
+          'Loading'
         )}
       </div>
       <Footer

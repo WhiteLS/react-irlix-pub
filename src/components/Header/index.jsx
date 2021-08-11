@@ -37,9 +37,9 @@ function Header({ children }) {
   const dispatch = useDispatch();
   const category = useSelector(({ category }) => category);
 
-  const onSelectCategory = (catN) => {
-    dispatch(fetchCocktails(false, catN));
-    dispatch(setCategory(catN));
+  const onSelectCategory = (catName) => {
+    dispatch(fetchCocktails(false, catName));
+    dispatch(setCategory(catName));
   };
 
   return (
@@ -51,7 +51,7 @@ function Header({ children }) {
         </div>
         <div className={bem('logo')}>
           <Link to="/react-irlix-pub/">
-            <LogoIcon className="icon" />
+            <LogoIcon className="icon icon-logo" />
           </Link>
 
           <span>pub</span>

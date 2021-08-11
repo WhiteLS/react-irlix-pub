@@ -5,7 +5,14 @@
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 48.96%, rgba(14, 13, 19, 0.9) 89.58%);
     max-width: 320px;
 
-    &-header {
+    cursor: default;
+
+    picture {
+      left: 0;
+    }
+  }
+  &-header {
+    &_empty {
       width: 100%;
       background-color: transparent;
 
@@ -15,10 +22,6 @@
       h3 {
         font-weight: 400;
       }
-    }
-
-    picture {
-      left: 0;
     }
   }
 }
